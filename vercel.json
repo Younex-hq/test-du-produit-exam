@@ -1,19 +1,10 @@
 {
-  "version": 2,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.5.2"
+    "version": 2,
+    "builds": [{ "src": "public/**/*", "use": "@vercel/php" }],
+    "routes": [{ "src": "/(.*)", "dest": "/public/$1" }],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://your-vercel-app-url.vercel.app"
     }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ],
-  "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "APP_URL": "https://your-vercel-app-url.vercel.app"
-  }
 }
